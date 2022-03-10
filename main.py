@@ -13,8 +13,8 @@ if __name__ == "__main__":
 
     # path = r"C:\Users\ponta\Downloads\Data30Subjects-20211024T204355Z-001\Data30Subjects\Raw1Marks"
     # onlyfilestxt = [f for f in listdir(path) if f.endswith("txt")]
-    path = r"C:\Users\ponta\Downloads\Data30Subjects-20211024T204355Z-001\Data30Subjects\Raw1Recordings"
-    onlyfilestxt = [f for f in listdir(path) if f.endswith("0.txt")]
+    path = r"C:\Users\psonc001\PycharmProjects\csvfeeder\Data30Subjects\Raw1Recordings"
+    onlyfilestxt = [f for f in listdir(path) if f.endswith("1.txt")]
 
 
     for f_name in onlyfilestxt:
@@ -24,10 +24,11 @@ if __name__ == "__main__":
 
             for inx, line in enumerate(lines):
                 line = line.split(',')
-                sql = "INSERT INTO dsplab.gmvd VALUES ('{}', '{}', '{}', '{}', '{}', '{}', '{}', '{}', '{}', '{}'".format(line[0], line[1], line[2], line[3], line[4], line[5], line[6], line[7], line[8], line[9])
-                sql_1 = ",'{}', '{}', '{}', '{}', '{}', '{}', '{}')".format(line[10], line[11], line[12], line[13], line[14], line[15], f_name)
+                sql = "INSERT INTO dsplab.gmvs VALUES ('{}', '{}', '{}', '{}', '{}', '{}', '{}', '{}', '{}', '{}'".format(line[0], line[1], line[2], line[3], line[4], line[5], line[6], line[7], line[8], line[9])
+                sql_1 = ",'{}', '{}', '{}', '{}', '{}', '{}'".format(line[10], line[11], line[12], line[13], line[14], line[15])
+                sql_2 = ",'{}', '{}', '{}', '{}', '{}')".format(line[16], line[17], line[18], line[19], f_name)
 
-                sql = sql + sql_1
+                sql = sql + sql_1 + sql_2
                 conn.execute(sql)
 
                 if inx % 1000 == 0:
