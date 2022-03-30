@@ -26,7 +26,16 @@ if __name__ == "__main__":
         result = conn.fetchall()
         with open(filename+'.csv', 'w', newline='') as f:
             writer = csv.writer(f)
-            for x in result:
+            for r in result:
+                x = list(r)
+                x[0] = x[0].replace('T', '')
+                x[18] = x[18].replace('T', '')
+
+                x[16] = x[16].replace('rec', '')
+                x[16] = x[16].replace('GMV0.txt', '')
+
+                x[38] = x[38].replace('rec', '')
+                x[38] = x[38].replace('GMV1.txt', '')
                 writer.writerow(x)
             # print(type(x))
         f.close()

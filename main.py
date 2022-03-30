@@ -1,5 +1,8 @@
 from os import listdir
 import mysql.connector
+import matplotlib.pyplot as plt
+import numpy as np
+
 
 if __name__ == "__main__":
 
@@ -11,10 +14,8 @@ if __name__ == "__main__":
 
     conn = mydb.cursor()
 
-    # path = r"C:\Users\ponta\Downloads\Data30Subjects-20211024T204355Z-001\Data30Subjects\Raw1Marks"
-    # onlyfilestxt = [f for f in listdir(path) if f.endswith("txt")]
-    path = r"C:\Users\psonc001\PycharmProjects\csvfeeder\Data30Subjects\Raw1Recordings"
-    onlyfilestxt = [f for f in listdir(path) if f.endswith("1.txt")]
+    path = r"C:\Users\ponta\Downloads\Data30Subjects-20211024T204355Z-001\Data30Subjects\Raw1Marks"
+    onlyfilestxt = [f for f in listdir(path) if f.endswith("txt")]
 
 
     for f_name in onlyfilestxt:
