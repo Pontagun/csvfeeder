@@ -33,7 +33,7 @@ if __name__ == "__main__":
         plt.plot(qz[:tdistort])
         plt.plot(qw[:tdistort])
         plt.savefig('./plot_normal/{}.png'.format(f_name[0:6]))
-        plt.close()ex
+        plt.close()
 
         plt.plot(qx[tdistort:])
         plt.plot(qy[tdistort:])
